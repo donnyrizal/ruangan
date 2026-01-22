@@ -19,11 +19,11 @@ const sidebarHTML = `
             <i class="ph-fill ph-squares-four text-lg"></i>
             Dashboard
         </a>
-        <a href="./schedules.html" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
+        <a href="./schedules" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
             <i class="ph-bold ph-calendar-blank text-lg"></i>
             All Schedules
         </a>
-        <a href="./form.html" data-page="form" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
+        <a href="./form" data-page="form" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
             <i class="ph-bold ph-table text-lg"></i>
             Form Peminjaman
         </a>
