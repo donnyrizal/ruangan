@@ -1,25 +1,14 @@
 const pathName = window.location.pathname;
 const isSubPage = pathName.includes("/form") || pathName.includes("/schedules");
-const root = isSubPage ? "../" : "./";
-
+const root = "/ruangan/";
 const sidebarHTML = `
 <div id="mobileOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-gray-900/50 z-20 hidden md:hidden transition-opacity opacity-0"></div>
-
 <aside id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-30 flex flex-col md:relative">
     <div class="p-6 flex items-center justify-between gap-3">
-        <div class="flex items-center gap-3">
-            <div class="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
-                <i class="ph-bold ph-buildings text-xl"></i>
-            </div>
-            <span class="text-xs font-bold tracking-tight">Peminjaman Ruangan Psikologi <span class="text-indigo-600"> UMS</span></span>
         </div>
-        <button onclick="toggleSidebar()" class="md:hidden text-gray-400 hover:text-gray-600">
-            <i class="ph-bold ph-x text-xl"></i>
-        </button>
-    </div>
 
     <nav class="flex-1 px-4 space-y-1 mt-4">
-        <a href="${root}" data-page="home" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
+        <a href="${root}" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
             <i class="ph-fill ph-squares-four text-lg"></i>
             Dashboard
         </a>
@@ -27,53 +16,21 @@ const sidebarHTML = `
             <i class="ph-bold ph-calendar-blank text-lg"></i>
             All Schedules
         </a>
-        <a href="${root}form" data-page="form" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
+        <a href="${root}form" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
             <i class="ph-bold ph-table text-lg"></i>
             Form Peminjaman
         </a>
     </nav>
-
-    <div class="p-4 border-t border-gray-100">
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-            <div class="flex items-center justify-between mb-2">
-                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
-                    Pukul
-                </p>
-                <div class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></div>
-            </div>
-            <div>
-                <div id="clockDisplay" class="text-2xl font-bold text-gray-700 font-mono tracking-tight leading-none">
-                    --:--:--
-                </div>
-                <div id="dateDisplay" class="text-xs text-gray-500 font-medium mt-1">
-                    Syncing...
-                </div>
-            </div>
-        </div>
-    </div>
-</aside>
+    </aside>
 `;
-
 function renderSidebar() {
   document.body.insertAdjacentHTML("afterbegin", sidebarHTML);
-  
   const currentPath = window.location.pathname;
   const links = document.querySelectorAll(".sidebar-link");
-  
   links.forEach((link) => {
-    let isActive = false;
     const linkHref = link.getAttribute("href");
-    if ((linkHref === "./" || linkHref === "../") && (currentPath.endsWith("ruangan/") || currentPath.endsWith("index.html") || currentPath === "/")) {
-        if (!currentPath.includes("/form") && !currentPath.includes("/schedules")) {
-             isActive = true;
-        }
-    } 
-    else if (linkHref.includes("form") && currentPath.includes("form")) {
-      isActive = true;
-    } 
-    else if (linkHref.includes("schedules") && currentPath.includes("schedules")) {
-      isActive = true;
-    }
+    const isActive = (linkHref === "/ruangan/" && (currentPath === "/ruangan/" || currentPath === "/ruangan/index.html")) 
+                     || (linkHref !== "/ruangan/" && currentPath.startsWith(linkHref));
 
     if (isActive) {
       link.className = "sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium bg-indigo-50 text-indigo-700 rounded-xl";
@@ -82,7 +39,6 @@ function renderSidebar() {
     }
   });
 }
-
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const overlay = document.getElementById("mobileOverlay");
