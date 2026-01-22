@@ -9,9 +9,8 @@ const ignoreList = [
   "package.json",
   "package-lock.json",
   "build.js",
-  "README.md" 
+  "README.md",
 ];
-
 async function build() {
   console.log("🧹 Cleaning up old build directory...");
   await fs.emptyDir(outDir);
@@ -25,13 +24,16 @@ async function build() {
       fs.copySync(fullPath, path.join(outDir, item));
     } else if (item.endsWith(".html") && item !== "index.html" && item !== "404.html") {
       const name = path.parse(item).name;
+      let htmlContent = fs.readFileSync(fullPath, 'utf-8');
+      htmlContent = htmlContent.replace(/src="\.\//g, 'src="../');
+      htmlContent = htmlContent.replace(/href="\.\//g, 'href="../');
       fs.ensureDirSync(path.join(outDir, name));
-      fs.copySync(fullPath, path.join(outDir, name, "index.html"));
-      console.log(`   Cleaned: ${item} -> ${name}/index.html`);
+      fs.writeFileSync(path.join(outDir, name, "index.html"), htmlContent);
+      console.log(`   ✨ Processed & Cleaned: ${item} -> ${name}/index.html (Paths updated)`);
     } else {
       fs.copySync(fullPath, path.join(outDir, item));
     }
   });
-  console.log("✅ Build complete!");
+  console.log("✅ Build complete! No duplicate files.");
 }
 build();
