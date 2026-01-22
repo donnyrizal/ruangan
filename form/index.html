@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Peminjaman Ruangan Psikologi UMS</title>
+    <meta name="title" content="Peminjaman Ruangan Psikologi UMS" />
+    <meta
+      name="description"
+      content="Portal resmi peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal dan akses ruangan di sini."
+    />
+    <meta name="author" content="Donny Rizal" />
+    <meta
+      name="keywords"
+      content="Ruangan, Peminjaman, Psikologi, Universitas Muhammadiyah Surakarta"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://donnyrizal.github.io/ruangan/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://donnyrizal.github.io/ruangan/" />
+    <meta property="og:title" content="Peminjaman Ruangan Psikologi UMS" />
+    <meta
+      property="og:description"
+      content="Portal resmi peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal dan akses ruangan di sini."
+    />
+    <meta
+      property="og:image"
+      content="https://ums.id/static/assets/image_ums/logo_ums_white.png"
+    />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://donnyrizal.github.io/ruangan/"
+    />
+    <meta property="twitter:title" content="Peminjaman Ruangan Psikologi UMS" />
+    <meta
+      property="twitter:description"
+      content="Portal resmi peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal dan akses ruangan di sini."
+    />
+    <meta
+      property="twitter:image"
+      content="https://ums.id/static/assets/image_ums/logo_ums_white.png"
+    />
+    <meta name="theme-color" content="#7f00ff" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://ums.id/static/assets/image_ums/logo_ums_white.png"
+      sizes="32x32"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ums.id/static/assets/image_ums/logo_ums_white.png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #f3f4f6;
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .custom-scroll::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+      }
+
+      .custom-scroll::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .custom-scroll::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 20px;
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .animate-pop {
+        animation: popIn 0.2s ease-out forwards;
+      }
+    </style>
+  </head>
+
+  <body class="flex h-screen overflow-hidden text-gray-800 relative">
+    <!--Supposedly Sidebar Here -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden relative w-full">
+      <header
+        class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 z-10 shrink-0"
+      >
+        <div class="flex items-center gap-4">
+          <button
+            onclick="toggleSidebar()"
+            class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none p-1 rounded-md active:bg-gray-100"
+          >
+            <i class="ph-bold ph-list text-2xl"></i>
+          </button>
+
+          <h1
+            class="hidden md:block text-lg md:text-xl font-bold text-gray-800 truncate"
+          >
+            <i class="ph-duotone ph-table text-lg"></i>
+            Form Peminjaman Ruangan
+          </h1>
+        </div>
+      </header>
+      <div class="flex-1 overflow-y-auto bg-[#F3F4F6] p-4 md:p-8">
+        <div class="max-w-7xl mx-auto space-y-6">
+          <div
+            class="bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col h-[600px] relative overflow-hidden"
+          >
+            <div class="flex-1 overflow-hidden relative" id="gridContainer">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfpHIBL-2bFRtrtlCTASMFOvZDPqpALf8FCZA0t0x-gkHrPZg/viewform?embedded=true"
+                class="absolute inset-0 w-full h-full"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+              >
+                Loading...
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Peminjaman Ruangan Psikologi UMS",
+      "description": "Portal resmi peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal dan akses ruangan di sini.",
+      "url": "https://donnyrizal.github.io/ruangan",
+      "author": {
+        "@type": "Person",
+        "name": "Donny Rizal"
+      },
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "Universitas Muhammadiyah Surakarta",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ums.id/static/assets/image_ums/logo_ums_white.png"
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="./sidebar.js"></script>
+  <script src="./script.js"></script>
+</html>
