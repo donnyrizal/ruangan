@@ -442,7 +442,7 @@ function renderList() {
                            ${b.room}
                         </span>
                     </div>
-                    <h4 class="font-bold text-gray-900 truncate">Kegiatan: ${b.purpose}</h4>
+                    <h4 class="font-bold text-gray-900 text-sm md:text-base break-words leading-tight mb-1">Kegiatan :${b.purpose}</h4>
                     <p class="text-sm text-gray-500 truncate mt-1">Dipinjam oleh: <span class="font-semibold text-gray-700">${b.user}</span></p>
                     <p class="text-xs text-gray-400 mt-0.5 truncate">Unit: <span class="font-semibold text-gray-700">${b.org}</span></p>
                     <p class="text-xs text-gray-400 mt-0.5 truncate">Lampiran: <span class="font-semibold text-gray-700">${b.attachment}</span></p>
