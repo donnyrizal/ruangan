@@ -1,3 +1,7 @@
+const pathName = window.location.pathname;
+const isSubPage = pathName.includes("/form") || pathName.includes("/schedules");
+const root = isSubPage ? "../" : "./";
+
 const sidebarHTML = `
 <div id="mobileOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-gray-900/50 z-20 hidden md:hidden transition-opacity opacity-0"></div>
 
@@ -15,15 +19,15 @@ const sidebarHTML = `
     </div>
 
     <nav class="flex-1 px-4 space-y-1 mt-4">
-        <a href="./" data-page="home" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
+        <a href="${root}" data-page="home" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
             <i class="ph-fill ph-squares-four text-lg"></i>
             Dashboard
         </a>
-        <a href="./schedules" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
+        <a href="${root}schedules" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
             <i class="ph-bold ph-calendar-blank text-lg"></i>
             All Schedules
         </a>
-        <a href="./form" data-page="form" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
+        <a href="${root}form" data-page="form" class="sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-colors">
             <i class="ph-bold ph-table text-lg"></i>
             Form Peminjaman
         </a>
@@ -52,18 +56,25 @@ const sidebarHTML = `
 
 function renderSidebar() {
   document.body.insertAdjacentHTML("afterbegin", sidebarHTML);
+  
   const currentPath = window.location.pathname;
   const links = document.querySelectorAll(".sidebar-link");
+  
   links.forEach((link) => {
     let isActive = false;
     const linkHref = link.getAttribute("href");
-    if (linkHref === "./" && (currentPath.endsWith("/") || currentPath.includes("index.html"))) {
+    if ((linkHref === "./" || linkHref === "../") && (currentPath.endsWith("ruangan/") || currentPath.endsWith("index.html") || currentPath === "/")) {
+        if (!currentPath.includes("/form") && !currentPath.includes("/schedules")) {
+             isActive = true;
+        }
+    } 
+    else if (linkHref.includes("form") && currentPath.includes("form")) {
       isActive = true;
-    } else if (linkHref.includes("form.html") && currentPath.includes("form.html")) {
-      isActive = true;
-    } else if (linkHref.includes("schedules.html") && currentPath.includes("schedules.html")) {
+    } 
+    else if (linkHref.includes("schedules") && currentPath.includes("schedules")) {
       isActive = true;
     }
+
     if (isActive) {
       link.className = "sidebar-link flex items-center gap-3 px-4 py-3 text-sm font-medium bg-indigo-50 text-indigo-700 rounded-xl";
     } else {
@@ -71,6 +82,7 @@ function renderSidebar() {
     }
   });
 }
+
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const overlay = document.getElementById("mobileOverlay");
