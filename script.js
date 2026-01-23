@@ -288,20 +288,7 @@ function processData(data, preventAutoJump = false) {
   });
   if (document.getElementById("gridContainer")) {
     const statusEl = document.getElementById("lastUpdate");
-    if (!preventAutoJump) {
-      const todayHasData = allBookings.some((b) =>
-        isSameDay(b.start, currentFilterDate),
-      );
-      if (!todayHasData && firstDateFound) {
-        currentFilterDate = firstDateFound;
-        if (datepickerInstance) datepickerInstance.setDate(currentFilterDate);
-        if (statusEl) statusEl.innerText = "Auto-Jumped";
-      } else {
-        if (statusEl) statusEl.innerText = "Live Synced";
-      }
-    } else {
-      if (statusEl) statusEl.innerText = "Refreshed";
-    }
+    if (statusEl) statusEl.innerText = "Live Synced"; 
     renderGrid();
   } else if (document.getElementById("listContainer")) {
     renderList();
