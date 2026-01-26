@@ -1,169 +1,122 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Schedules - UMS Rooms</title>
-    <meta name="title" content="Peminjaman Ruangan Psikologi UMS" />
-    <meta
-      name="description"
-      content="Portal resmi peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal dan akses ruangan di sini."
-    />
-    <meta name="author" content="Donny Rizal" />
-    <meta
-      name="keywords"
-      content="Ruangan, Peminjaman, Psikologi, Universitas Muhammadiyah Surakarta"
-    />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://donnyrizal.github.io/ruangan/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://donnyrizal.github.io/ruangan/" />
-    <meta property="og:title" content="Peminjaman Ruangan Psikologi UMS" />
-    <meta
-      property="og:description"
-      content="Portal resmi peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal dan akses ruangan di sini."
-    />
-    <meta
-      property="og:image"
-      content="https://ums.id/static/assets/image_ums/logo_ums_white.png"
-    />
-    <meta property="og:locale" content="id_ID" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://donnyrizal.github.io/ruangan/"
-    />
-    <meta property="twitter:title" content="Peminjaman Ruangan Psikologi UMS" />
-    <meta
-      property="twitter:description"
-      content="Portal resmi peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal dan akses ruangan di sini."
-    />
-    <meta
-      property="twitter:image"
-      content="https://ums.id/static/assets/image_ums/logo_ums_white.png"
-    />
-    <meta name="theme-color" content="#7f00ff" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://ums.id/static/assets/image_ums/logo_ums_white.png"
-      sizes="32x32"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="https://ums.id/static/assets/image_ums/logo_ums_white.png"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
 
-    <style>
-      body {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        background-color: #f3f4f6;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Peminjaman Ruangan Psikologi UMS</title>
+  <meta name="title" content="Peminjaman Ruangan Psikologi UMS" />
+  <meta name="description"
+    content="Layanan peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal ruangan, ketersediaan, serta informasi akses ruangan secara cepat dan mudah di satu tempat." />
+  <meta name="author" content="Donny Rizal" />
+  <meta name="keywords" content="Ruangan, Peminjaman, Psikologi, Universitas Muhammadiyah Surakarta" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://donnyrizal.github.io/ruangan/" />
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://donnyrizal.github.io/ruangan/schedules/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Peminjaman Ruangan Psikologi UMS" />
+  <meta property="og:description"
+    content="Layanan peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal ruangan, ketersediaan, serta informasi akses ruangan secara cepat dan mudah di satu tempat." />
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDA2MjZ8MHwxfHNlYXJjaHwxOHx8Y2xhc3Nyb29tfGVufDB8fHx8MTc2OTM5NTQ3NXww&ixlib=rb-4.1.0&q=80&w=1080" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="donnyrizal.github.io" />
+  <meta property="twitter:url" content="https://donnyrizal.github.io/ruangan/schedules/" />
+  <meta name="twitter:title" content="Peminjaman Ruangan Psikologi UMS" />
+  <meta name="twitter:description"
+    content="Layanan peminjaman ruangan Fakultas Psikologi UMS. Cek jadwal ruangan, ketersediaan, serta informasi akses ruangan secara cepat dan mudah di satu tempat." />
+  <meta name="twitter:image"
+    content="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDA2MjZ8MHwxfHNlYXJjaHwxOHx8Y2xhc3Nyb29tfGVufDB8fHx8MTc2OTM5NTQ3NXww&ixlib=rb-4.1.0&q=80&w=1080" />
+
+  <meta name="theme-color" content="#7f00ff" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <link rel="icon" type="image/png" href="https://ums.id/static/assets/image_ums/logo_ums_white.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="https://ums.id/static/assets/image_ums/logo_ums_white.png" />
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background-color: #f3f4f6;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
       }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      .booking-card {
-        animation: fadeIn 0.3s ease-out forwards;
-      }
-    </style>
-  </head>
-  <body class="flex h-screen overflow-hidden text-gray-800 bg-gray-50">
-    <main class="flex-1 flex flex-col h-screen overflow-hidden relative w-full">
-      <header
-        class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 z-10 shrink-0"
-      >
-        <div class="flex items-center gap-4">
-          <button
-            onclick="toggleSidebar()"
-            class="md:hidden text-gray-500 hover:text-gray-700 p-1 rounded-md"
-          >
-            <i class="ph-bold ph-list text-2xl"></i>
-          </button>
-          <h1 class="text-lg md:text-xl font-bold text-gray-800">
-            Jadwal Peminjaman Ruangan
-          </h1>
+    }
+
+    .booking-card {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+  </style>
+</head>
+
+<body class="flex h-screen overflow-hidden text-gray-800 bg-gray-50">
+  <main class="flex-1 flex flex-col h-screen overflow-hidden relative w-full">
+    <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 z-10 shrink-0">
+      <div class="flex items-center gap-4">
+        <button onclick="toggleSidebar()" class="md:hidden text-gray-500 hover:text-gray-700 p-1 rounded-md">
+          <i class="ph-bold ph-list text-2xl"></i>
+        </button>
+        <h1 class="text-lg md:text-xl font-bold text-gray-800">
+          Jadwal Peminjaman Ruangan
+        </h1>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="relative hidden md:block">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <i class="ph-bold ph-magnifying-glass text-gray-400"></i>
+          </div>
+          <input type="text" id="searchInput" onkeyup="filterList()"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-64 pl-10 p-2"
+            placeholder="Search room, user..." />
         </div>
+        <button onclick="fetchData(true)"
+          class="h-9 w-9 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 flex items-center justify-center transition-colors">
+          <i class="ph-bold ph-arrows-clockwise text-lg"></i>
+        </button>
+      </div>
+    </header>
 
-        <div class="flex items-center gap-3">
-          <div class="relative hidden md:block">
-            <div
-              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-            >
-              <i class="ph-bold ph-magnifying-glass text-gray-400"></i>
-            </div>
-            <input
-              type="text"
-              id="searchInput"
-              onkeyup="filterList()"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-64 pl-10 p-2"
-              placeholder="Search room, user..."
-            />
-          </div>
-          <button
-            onclick="fetchData(true)"
-            class="h-9 w-9 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 flex items-center justify-center transition-colors"
-          >
-            <i class="ph-bold ph-arrows-clockwise text-lg"></i>
-          </button>
+    <div class="flex-1 overflow-y-auto p-4 md:p-8 custom-scroll" id="scrollContainer">
+      <div class="max-w-4xl mx-auto">
+        <div id="loader" class="flex flex-col items-center justify-center py-20">
+          <div class="animate-spin rounded-full h-10 w-10 border-4 border-indigo-600 border-t-transparent"></div>
+          <p class="mt-3 text-sm font-semibold text-indigo-900">
+            Loading Schedules...
+          </p>
         </div>
-      </header>
-
-      <div
-        class="flex-1 overflow-y-auto p-4 md:p-8 custom-scroll"
-        id="scrollContainer"
-      >
-        <div class="max-w-4xl mx-auto">
-          <div
-            id="loader"
-            class="flex flex-col items-center justify-center py-20"
-          >
-            <div
-              class="animate-spin rounded-full h-10 w-10 border-4 border-indigo-600 border-t-transparent"
-            ></div>
-            <p class="mt-3 text-sm font-semibold text-indigo-900">
-              Loading Schedules...
-            </p>
+        <div id="listContainer" class="space-y-8 hidden"></div>
+        <div id="emptyState" class="hidden flex flex-col items-center justify-center py-20 text-center">
+          <div class="bg-white p-4 rounded-full shadow-sm mb-4">
+            <i class="ph-duotone ph-calendar-slash text-4xl text-gray-400"></i>
           </div>
-          <div id="listContainer" class="space-y-8 hidden"></div>
-          <div
-            id="emptyState"
-            class="hidden flex flex-col items-center justify-center py-20 text-center"
-          >
-            <div class="bg-white p-4 rounded-full shadow-sm mb-4">
-              <i
-                class="ph-duotone ph-calendar-slash text-4xl text-gray-400"
-              ></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900">
-              o(*￣︶￣*)o Kosongan Slur
-            </h3>
-            <p class="text-gray-500 text-sm mt-1">
-              Tidak ada peminjaman ruangan
-            </p>
-          </div>
+          <h3 class="text-lg font-bold text-gray-900">
+            o(*￣︶￣*)o Kosongan Slur
+          </h3>
+          <p class="text-gray-500 text-sm mt-1">
+            Tidak ada peminjaman ruangan
+          </p>
         </div>
       </div>
-    </main>
-    <script type="application/ld+json">
+    </div>
+  </main>
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -184,23 +137,24 @@
         }
       }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <script src="../sidebar.js"></script>
-    <script src="../script.js"></script>
-    <script>
-      function filterList() {
-        const input = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
-        const cards = document.querySelectorAll(".booking-card");
-        cards.forEach((card) => {
-          const text = card.innerText.toLowerCase();
-          card.style.display = text.includes(input) ? "block" : "none";
-        });
-      }
-    </script>
-  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="../sidebar.js"></script>
+  <script src="../script.js"></script>
+  <script>
+    function filterList() {
+      const input = document
+        .getElementById("searchInput")
+        .value.toLowerCase();
+      const cards = document.querySelectorAll(".booking-card");
+      cards.forEach((card) => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
+</body>
+
 </html>
