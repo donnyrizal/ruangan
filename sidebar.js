@@ -205,10 +205,8 @@ function renderSidebar() {
       } // Sidebar Link
     } else if (linkHref.includes("form") && currentPath.includes("form")) {
       isActive = true;
-    } else if (
-      linkHref.includes("schedules") &&
-      currentPath.includes("schedules")
-    ) {
+    } else if (linkHref.includes("schedules") && currentPath.includes("schedules")) {
+      isActive = true;
     } else if (linkHref.includes("jadwal") && currentPath.includes("jadwal")) {
       isActive = true;
     }
