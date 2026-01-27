@@ -9,7 +9,7 @@ const sidebarHTML = `
     <div class="p-6 flex items-center justify-between gap-3">
         <div class="flex items-center gap-3">
         <a
-            href="./"
+            href="https://donnyrizal.github.io/ruangan/"
             class="flex items-center transition-opacity hover:opacity-90"
           >
             <svg
