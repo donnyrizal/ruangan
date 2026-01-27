@@ -376,17 +376,43 @@ function renderGrid() {
     else emptyState.classList.add("hidden");
   }
 }
-function renderList() {
+function renderList(searchQuery = "") {
   const container = document.getElementById("listContainer");
   const emptyState = document.getElementById("emptyState");
+  if (!container) return;
   container.innerHTML = "";
   container.classList.remove("hidden");
   const now = getServerTime();
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const upcomingBookings = allBookings.filter((b) => b.start >= todayStart);
+  let upcomingBookings = allBookings.filter((b) => b.start >= todayStart);
   upcomingBookings.sort((a, b) => a.start - b.start);
+  if (searchQuery.trim() !== "") {
+    const term = searchQuery.toLowerCase();
+    upcomingBookings = upcomingBookings.filter((b) => {
+      const dateStr = b.start.toLocaleDateString("id-ID", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }).toLowerCase();
+      return (
+        b.user.toLowerCase().includes(term) ||
+        b.room.toLowerCase().includes(term) ||
+        b.purpose.toLowerCase().includes(term) ||
+        b.org.toLowerCase().includes(term) ||
+        dateStr.includes(term) 
+      );
+    });
+  }
   if (upcomingBookings.length === 0) {
     emptyState.classList.remove("hidden");
+    if(searchQuery !== "") {
+        emptyState.querySelector('h3').innerText = "Tidak Ditemukan";
+        emptyState.querySelector('p').innerText = `Tidak ada jadwal yang cocok dengan "${searchQuery}"`;
+    } else {
+        emptyState.querySelector('h3').innerText = "o(*￣︶￣*)o Kosongan Slur";
+        emptyState.querySelector('p').innerText = "Tidak ada peminjaman ruangan";
+    }
     container.classList.add("hidden");
     return;
   } else {
@@ -407,34 +433,33 @@ function renderList() {
     const section = document.createElement("div");
     section.className = "space-y-3";
     const header = document.createElement("h3");
-    header.className =
-      "text-sm font-bold text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50 py-2 z-10";
+    header.className = "text-sm font-bold text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50 py-2 z-10";
     header.innerHTML = `<i class="ph-bold ph-calendar-blank mr-1"></i> ${dateStr}`;
     section.appendChild(header);
     const grid = document.createElement("div");
-    grid.className = "grid grid-cols-1 gap-3";
+    grid.className = "grid grid-cols-1 gap-3";    
     bookings.forEach((b) => {
       const color = getBookingColor(b.user);
       const card = document.createElement("div");
       card.className = `booking-card bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col md:flex-row gap-4 items-start md:items-center ${color.hover} transition-all`;
 
       card.innerHTML = `
-                <div class="flex-shrink-0 w-full md:w-32 bg-gray-50 rounded-lg p-2 text-center border border-gray-100">
-                    <p class="text-xs font-bold text-gray-400">Pukul</p>
-                    <p class="text-sm font-bold text-gray-800">${formatTime(b.start)} - ${formatTime(b.end)}</p>
+            <div class="flex-shrink-0 w-full md:w-32 bg-gray-50 rounded-lg p-2 text-center border border-gray-100">
+                <p class="text-xs font-bold text-gray-400">Pukul</p>
+                <p class="text-sm font-bold text-gray-800">${formatTime(b.start)} - ${formatTime(b.end)}</p>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10 whitespace-normal text-left h-fit">
+                       ${b.room}
+                    </span>
                 </div>
-                <div class="flex-1 min-w-0">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10 truncate max-w-[200px]">
-                           ${b.room}
-                        </span>
-                    </div>
-                    <h4 class="font-bold text-gray-900 text-sm md:text-base break-words leading-tight mb-1">Kegiatan :${b.purpose}</h4>
-                    <p class="text-sm text-gray-500 truncate mt-1">Dipinjam oleh: <span class="font-semibold text-gray-700">${b.user}</span></p>
-                    <p class="text-xs text-gray-400 mt-0.5 truncate">Unit: <span class="font-semibold text-gray-700">${b.org}</span></p>
-                    <p class="text-xs text-gray-400 mt-0.5 truncate">Lampiran: <span class="font-semibold text-gray-700">${b.attachment}</span></p>
-                </div>
-            `;
+                <h4 class="font-bold text-gray-900 text-sm md:text-base break-words leading-tight mb-1">Kegiatan: ${b.purpose}</h4>
+                <p class="text-sm text-gray-500 truncate mt-1">Dipinjam oleh: <span class="font-semibold text-gray-700">${b.user}</span></p>
+                <p class="text-xs text-gray-400 mt-0.5 truncate">Unit: <span class="font-semibold text-gray-700">${b.org}</span></p>
+                <p class="text-xs text-gray-400 mt-0.5 truncate">Lampiran: <span class="font-semibold text-gray-700">${b.attachment}</span></p>
+            </div>
+        `;
       grid.appendChild(card);
     });
 
