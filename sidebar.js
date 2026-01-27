@@ -64,12 +64,11 @@ function renderSidebar() {
         ) {
           isActive = true;
         }
-      }
+      } // Sidebar Link
     } else if (linkHref.includes("form") && currentPath.includes("form")) {
       isActive = true;
     } else if (
-      linkHref.includes("schedules") &&
-      currentPath.includes("schedules")
+      linkHref.includes("schedules") && currentPath.includes("schedules")
     ) {
       isActive = true;
     }
