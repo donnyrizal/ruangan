@@ -176,7 +176,7 @@ const sidebarHTML = `
     <div class="p-4 border-t border-gray-100">
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
              <div class="flex items-center justify-between mb-2">
-                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Pukul</p>
+                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Jam Dinding</p>
                 <div class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></div>
             </div>
             <div>
