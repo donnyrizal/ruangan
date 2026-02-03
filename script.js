@@ -17,6 +17,8 @@ const FIXED_ROOMS = [
   "L1.204 (Profesi)",
   "L1.205 (Profesi)",
   "L0.201 (Gedung Lama)",
+  "L0.203A (Ruang Ujian Skripsi/Thesis)",
+  "L0.203B (Ruang Ujian Skripsi/Thesis)",
   "L0.205 / Smart Classroom (Gedung Lama)",
   "Ruang Pusat Studi (Lt. 2)",
   "Ruang Baca Sarjana (Lt. 2)",
