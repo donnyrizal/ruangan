@@ -14,7 +14,7 @@
   <link rel="canonical" href="https://donnyrizal.github.io/ruangan/" />
 
   <!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://donnyrizal.github.io/form/" />
+  <meta property="og:url" content="https://donnyrizal.github.io/form/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Peminjaman Ruangan Psikologi UMS" />
   <meta property="og:description"
@@ -38,8 +38,11 @@
   <link rel="icon" type="image/png" href="https://ums.id/static/assets/image_ums/logo_ums_white.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="https://ums.id/static/assets/image_ums/logo_ums_white.png" />
   <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
 
   <style>
     body {
@@ -106,6 +109,25 @@
     </header>
     <div class="flex-1 overflow-y-auto bg-[#F3F4F6] p-4 md:p-8">
       <div class="max-w-7xl mx-auto space-y-6">
+        <!-- Attention -->
+        <div class="bg-red-50 border-l-4 border-red-500 p-4 md:p-6 rounded-lg my-4">
+          <div class="flex gap-3">
+            <i class="ph-bold ph-info text-black-600 text-xl shrink-0 mt-0.5"></i>
+            <div>
+              <h3 class="font-semibold text-black-900 mb-1">Attention!</h3>
+              <p class="text-black-800 text-sm md:text-base">Pastikan Anda sudah Login
+                <a class="text-red-600 font-bold hover:underline" href="https://accounts.google.co.id/l"
+                  target="_blank">Google Account</a>
+                sebelum mengisi form peminjaman <br />Klik pada tautan
+                <a class="text-black-600 font-bold hover:underline"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfpHIBL-2bFRtrtlCTASMFOvZDPqpALf8FCZA0t0x-gkHrPZg/viewform"
+                  target="_blank">berikut</a>
+                untuk mengakses Form apabila ada kendala!
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- IFrame GForm -->
         <div
           class="bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col h-[600px] relative overflow-hidden">
           <div class="flex-1 overflow-hidden relative" id="gridContainer">
@@ -117,6 +139,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </main>
 </body>
