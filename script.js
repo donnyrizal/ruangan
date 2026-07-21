@@ -32,12 +32,16 @@ const FIXED_ROOMS = [
   "L0.303 (Gedung Lama)",
   "L0.304 (Gedung Lama)",
   "L0.305 (Gedung Lama)",
-  "L0.305 (Pasca)",
   "L1.301 (Profesi)",
   "L1.302 (Profesi)",
   "L1.303 (Profesi)",
   "L1.304 (Profesi)",
   "L1.305 (Profesi)",
+  "L1.401 (Profesi)",
+  "L1.402 (Profesi)",
+  "L1.403 (Profesi)",
+  "L1.404 (Profesi)",
+  "L1.405 (Profesi)",
 ];
 
 const BOOKING_COLORS = [
@@ -168,15 +172,16 @@ function openModal(booking) {
   const lampiranEl = document.getElementById("modal-lampiran");
   if (lampiranEl) {
     // STRICT CHECK: Ensure attachment exists, is not empty, and is not just a dash "-"
-    const hasAttachment = booking.attachment && 
-                          booking.attachment.trim().length > 0 && 
-                          booking.attachment.trim() !== "-";
+    const hasAttachment =
+      booking.attachment &&
+      booking.attachment.trim().length > 0 &&
+      booking.attachment.trim() !== "-";
 
     if (hasAttachment) {
       // --- RENDER CARD (Only if valid) ---
       let url = booking.upload.trim();
-      if (!url.startsWith('http')) url = 'http://' + url;
-      const displayUrl = booking.attachment.replace(/^https?:\/\//, '');
+      if (!url.startsWith("http")) url = "http://" + url;
+      const displayUrl = booking.attachment.replace(/^https?:\/\//, "");
 
       lampiranEl.innerHTML = `
         <a href="${url}" target="_blank" class="group flex items-center gap-3 p-3 w-full rounded-xl border border-gray-200 bg-white hover:border-indigo-300 hover:shadow-sm hover:bg-indigo-50/30 transition-all duration-200 decoration-0">
@@ -292,7 +297,7 @@ function processData(data, preventAutoJump = false) {
   });
   if (document.getElementById("gridContainer")) {
     const statusEl = document.getElementById("lastUpdate");
-    if (statusEl) statusEl.innerText = "Live Synced"; 
+    if (statusEl) statusEl.innerText = "Live Synced";
     renderGrid();
   } else if (document.getElementById("listContainer")) {
     renderList();
@@ -393,29 +398,32 @@ function renderList(searchQuery = "") {
   if (searchQuery.trim() !== "") {
     const term = searchQuery.toLowerCase();
     upcomingBookings = upcomingBookings.filter((b) => {
-      const dateStr = b.start.toLocaleDateString("id-ID", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }).toLowerCase();
+      const dateStr = b.start
+        .toLocaleDateString("id-ID", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })
+        .toLowerCase();
       return (
         b.user.toLowerCase().includes(term) ||
         b.room.toLowerCase().includes(term) ||
         b.purpose.toLowerCase().includes(term) ||
         b.org.toLowerCase().includes(term) ||
-        dateStr.includes(term) 
+        dateStr.includes(term)
       );
     });
   }
   if (upcomingBookings.length === 0) {
     emptyState.classList.remove("hidden");
-    if(searchQuery !== "") {
-        emptyState.querySelector('h3').innerText = "Tidak Ditemukan";
-        emptyState.querySelector('p').innerText = `Tidak ada jadwal yang cocok dengan "${searchQuery}"`;
+    if (searchQuery !== "") {
+      emptyState.querySelector("h3").innerText = "Tidak Ditemukan";
+      emptyState.querySelector("p").innerText =
+        `Tidak ada jadwal yang cocok dengan "${searchQuery}"`;
     } else {
-        emptyState.querySelector('h3').innerText = "o(*￣︶￣*)o Kosongan Slur";
-        emptyState.querySelector('p').innerText = "Tidak ada peminjaman ruangan";
+      emptyState.querySelector("h3").innerText = "o(*￣︶￣*)o Kosongan Slur";
+      emptyState.querySelector("p").innerText = "Tidak ada peminjaman ruangan";
     }
     container.classList.add("hidden");
     return;
@@ -437,11 +445,12 @@ function renderList(searchQuery = "") {
     const section = document.createElement("div");
     section.className = "space-y-3";
     const header = document.createElement("h3");
-    header.className = "text-sm font-bold text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50 py-2 z-10";
+    header.className =
+      "text-sm font-bold text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50 py-2 z-10";
     header.innerHTML = `<i class="ph-bold ph-calendar-blank mr-1"></i> ${dateStr}`;
     section.appendChild(header);
     const grid = document.createElement("div");
-    grid.className = "grid grid-cols-1 gap-3";    
+    grid.className = "grid grid-cols-1 gap-3";
     bookings.forEach((b) => {
       const color = getBookingColor(b.user);
       const card = document.createElement("div");
